@@ -29,13 +29,13 @@ def generate_plan():
     Make it realistic and motivating.
     """
 
-    response = client.chat.completions.create(
-        model="gpt-4o-mini",
-        messages=[
-            {"role": "system", "content": "You are an AI study planner for BTech students."},
-            {"role": "user", "content": prompt}
-        ]
-    )
+    response = client.responses.create(
+    model="gpt-4.1-mini",
+    input=prompt
+)
+
+return response.output_text
+
 
     return response.choices[0].message.content
 
@@ -48,4 +48,5 @@ if st.button("Generate Study Plan"):
             plan = generate_plan()
             st.success("Here is your study plan 👇")
             st.text(plan)
+
 
