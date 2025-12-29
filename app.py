@@ -20,7 +20,8 @@ days_left = (exam_date - today).days
 
 
 def generate_plan():
-
+    today = datetime.today().date()
+    days_left = (exam_date - today).days
 
     prompt = f"""
     Create a {days_left}-day study plan.
@@ -30,14 +31,11 @@ def generate_plan():
     """
 
     response = client.responses.create(
-    model="gpt-4.1-mini",
-    input=prompt
-)
+        model="gpt-4.1-mini",
+        input=prompt
+    )
 
-return response.output_text
-
-
-
+    return response.output_text
 
 #  Button
 if st.button("Generate Study Plan"):
@@ -48,6 +46,7 @@ if st.button("Generate Study Plan"):
             plan = generate_plan()
             st.success("Here is your study plan 👇")
             st.text(plan)
+
 
 
 
