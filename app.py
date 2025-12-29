@@ -3,7 +3,8 @@ from datetime import datetime
 import os
 from openai import OpenAI
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI()
+
 
 st.set_page_config(page_title="AI Study Planner", page_icon="📘")
 
@@ -47,3 +48,4 @@ if st.button("Generate Study Plan"):
             plan = generate_plan()
             st.success("Here is your study plan 👇")
             st.text(plan)
+
