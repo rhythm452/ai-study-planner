@@ -3,7 +3,7 @@ from datetime import datetime
 import os
 from openai import OpenAI
 
-client = OpenAI()
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 
 st.set_page_config(page_title="AI Study Planner", page_icon="📘")
