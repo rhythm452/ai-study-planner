@@ -37,7 +37,7 @@ def generate_plan():
 return response.output_text
 
 
-    return response.choices[0].message.content
+
 
 #  Button
 if st.button("Generate Study Plan"):
@@ -48,5 +48,6 @@ if st.button("Generate Study Plan"):
             plan = generate_plan()
             st.success("Here is your study plan 👇")
             st.text(plan)
+
 
 
