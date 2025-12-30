@@ -3,7 +3,7 @@ from datetime import datetime
 import os
 from openai import OpenAI
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+client = OpenAI()  # api_key auto env se uthayega
 
 
 st.set_page_config(page_title="AI Study Planner", page_icon="📘")
@@ -31,7 +31,7 @@ def generate_plan():
     """
 
     response = client.responses.create(
-        model="gpt-4.1-mini",
+        model="gpt-3.5-turbo",
         input=prompt
     )
 
