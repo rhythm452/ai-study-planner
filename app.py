@@ -31,7 +31,7 @@ def generate_plan():
     """
 
     response = client.responses.create(
-        model="gpt-3.5-turbo",
+         model="gpt-4o-mini",
         input=prompt
     )
 
